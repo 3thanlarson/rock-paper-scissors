@@ -1,2 +1,2 @@
 # rock-paper-scissors
-JavaScript Rock Paper Scissors game
+JavaScript terminal-based Rock Paper Scissors game
