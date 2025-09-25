@@ -7,3 +7,8 @@ function getComputerChoice() {
     else {
         return "scissors"};
 }
+
+function getHumanChoice() {
+    var userInput = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    return userInput;
+}
