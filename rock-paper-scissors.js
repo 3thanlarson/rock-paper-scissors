@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    var randomNumber = Math.random();
+    let randomNumber = Math.random();
     if (randomNumber < .33) {
         return "rock" }
     else if (randomNumber < .66 && randomNumber >=.33) {
@@ -9,6 +9,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    var userInput = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    let userInput = prompt("Rock, Paper, or Scissors?").toLowerCase();
     return userInput;
 }
+
+let humanScore = 0;
+let computerScore = 0;
