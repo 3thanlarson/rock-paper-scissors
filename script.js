@@ -1,3 +1,19 @@
+//---button logic---
+const rockButton = document.querySelector(".rock-button");
+const paperButton = document.querySelector(".paper-button");
+const scissorsButton = document.querySelector(".scissors-button");
+
+rockButton.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
+paperButton.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+});
+scissorsButton.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+});
+
+//---game logic---
 function getComputerChoice() {
     let randomNumber = Math.random();
     if (randomNumber < .33) {
@@ -17,8 +33,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    console.log("Ready?");
-
     let winner = "undefined";
     let loser = "undefined";
     let status = "undefined";
@@ -69,12 +83,12 @@ function playRound(humanChoice, computerChoice) {
     console.log("Player score: " + humanScore + " | Computer score: " + computerScore);
 }
 
-function playGame() {
+/* function playGame() {
     for (i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
-}  
+}   */
 
 playGame();
