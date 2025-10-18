@@ -32,12 +32,6 @@ function getComputerChoice() {
         return "scissors"};
 }
 
-/* function getplayerChoice() {
-    let userInput = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    return userInput;
-}
- */
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -46,6 +40,7 @@ function playRound(playerChoice, computerChoice) {
     let loser = "undefined";
     let status = "undefined";
 
+    //---tie, win, or lose?---
     if (playerChoice === computerChoice) {
         document.getElementById("round-result").style.color = "blue"; 
         roundResult.textContent = "Tie! You both chose " + playerChoice + "."; 
@@ -81,7 +76,9 @@ function playRound(playerChoice, computerChoice) {
             }
         }
         roundResult.textContent = "You " + status + "! " + String(winner).charAt(0).toUpperCase() + String(winner).slice(1) + " beats " + loser + ".";
-    }
+    };
+
+    //---score and ui update---
     if (status === "win") {
         playerScore++;
         playerBox.textContent = "Your score: " + playerScore;
@@ -92,6 +89,8 @@ function playRound(playerChoice, computerChoice) {
         computerBox.textContent = "Computer score: " + computerScore;
         document.getElementById("round-result").style.color = "red"; 
     };
+
+    //---check final win or lose condition---
     if (playerScore === 5) {
         roundResult.textContent = "You beat the computer! Choose another option to play again!"; 
         playerScore = 0;
@@ -105,13 +104,5 @@ function playRound(playerChoice, computerChoice) {
         playerBox.textContent = "Your score: 0";
         computerScore = 0;
         computerBox.textContent = "Computer score: 0";
-    }
+    };
 }
-
-/* function playGame() {
-    for (i = 0; i < 5; i++) {
-        const humanSelection = getplayerChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-}   */
