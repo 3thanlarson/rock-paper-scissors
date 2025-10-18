@@ -46,12 +46,10 @@ function playRound(playerChoice, computerChoice) {
     let loser = "undefined";
     let status = "undefined";
 
-    console.log("Your choice: " + playerChoice + " | Computer choice: " + computerChoice);
-
     if (playerChoice === computerChoice) {
+        document.getElementById("round-result").style.color = "blue"; 
         roundResult.textContent = "Tie! You both chose " + playerChoice + "."; 
-    }
-    else {
+    } else {
         if (playerChoice === "rock") {
             if (computerChoice === "paper") {
                 winner = "paper"; loser = "rock";
@@ -82,16 +80,32 @@ function playRound(playerChoice, computerChoice) {
                 status = "win";
             }
         }
-        roundResult.textContent = "You " + status + "! " + winner + " beats " + loser + ".";
+        roundResult.textContent = "You " + status + "! " + String(winner).charAt(0).toUpperCase() + String(winner).slice(1) + " beats " + loser + ".";
     }
     if (status === "win") {
         playerScore++;
         playerBox.textContent = "Your score: " + playerScore;
+        document.getElementById("round-result").style.color = "green"; 
         } 
     else if (status === "lose") {
         computerScore++
         computerBox.textContent = "Computer score: " + computerScore;
+        document.getElementById("round-result").style.color = "red"; 
     };
+    if (playerScore === 5) {
+        roundResult.textContent = "You beat the computer! Choose another option to play again!"; 
+        playerScore = 0;
+        playerBox.textContent = "Your score: " + playerScore;
+        computerScore = 0;
+        computerBox.textContent = "Computer score: " + computerScore;
+    };
+    if (computerScore === 5) {
+        roundResult.textContent = "You lost to the computer! Choose another option to try again!";
+        playerScore = 0;
+        playerBox.textContent = "Your score: 0";
+        computerScore = 0;
+        computerBox.textContent = "Computer score: 0";
+    }
 }
 
 /* function playGame() {
